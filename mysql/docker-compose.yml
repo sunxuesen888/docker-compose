@@ -1,0 +1,20 @@
+version: '3'
+services:
+  mysql:
+    image: percona/percona-server:8.0
+    container_name: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${PWD}/data/mysql:/var/lib/mysql:rw
+        #  - /var/run/mysqld:/var/run/mysqld:rw
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: sxs
+      MYSQL_USER: sxs
+      MYSQL_PASSWORD: sxs
+networks:
+  default:
+    external:
+      name: compose-bridge

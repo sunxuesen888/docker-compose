@@ -1,0 +1,10 @@
+version: '3'
+services:
+  keepalived:
+    image: alterway/keepalived:latest
+    container_name: keepalive
+    restart: always
+    privileged: true
+    volumes:
+            - "/opt/compose/keepalive/data/keepalived:/etc/keepalived:ro"
+    network_mode: "host"

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  httpd:
+    image: 192.168.50.21:5000/apache:v1
+    container_name: httpd
+    privileged: false
+    ports:
+      - "1313:80"
+    volumes:
+      - "${PWD}/data/html:/var/www/html/"
+networks:
+  default:
+    external:
+      name: compose-bridge
